@@ -1,12 +1,15 @@
 // import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 export default function Home() {
   return (
     <main className="z-10">
       <div className="h-screen flex items-center justify-center">
+        <Suspense fallback={<Loading />}/>
         <Link href="/heros">
           <Image
             className={`logo w-52 md:h-80 md:w-96 duration-500 hover:scale-125 peer cursor-pointer`}

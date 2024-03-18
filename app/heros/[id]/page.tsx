@@ -5,18 +5,15 @@ import Planet from "../../../components/Planet";
 import { createEdges } from "../../../lib/createEdges";
 import { createNodes } from "../../../lib/createNodes";
 import { generateNodePositions } from "../../../lib/generateNodePositions";
-// import { getHerosFilms } from "../../api/films/route";
-// import { getHero } from "../../api/hero/route";
-// import { getHeroPlanet } from "../../api/planet/route";
-// import { getHerosShips } from "../../api/ships/route";
 import { getId } from "../../../lib/getId";
-// import { getHeros } from "../../api/heros/route";
 import Image from "next/image";
 import { getHero } from "@/app/services/hero/hero";
 import { getHerosFilms } from "@/app/services/films/films";
 import { getHerosShips } from "@/app/services/ships/ships";
 import { getHeros } from "@/app/services/heros/heros";
 import { getHeroPlanet } from "@/app/services/planet/planet";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 type Props = {
   params: { id: string };
@@ -99,18 +96,16 @@ const HeroPage: React.FC<Props>= async ({ params, searchParams }) => {
   const initialEdges = createEdges(hero!, heroFilms, heroShips);
   const updatedNodes = generateNodePositions(initialNodes);
 
-  // console.log(updatedNodes);
-  // console.log(Array.isArray(initialEdges));
-
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <BackBtn />
+      <Suspense fallback={<Loading />}/>
       <Planet planet={heroPlanet.name} />
       <Link
         replace
         href={changeHero('prev')}
         className={`text-center h-16 w-16
-        md:h-32 md:w-22 text-6xl md:text-8xl text-blue top-52 left-0`}
+        md:h-32 md:w-22 text-6xl md:text-8xl text-blue top-52 left-0 md:pl-3.5`}
       >
         <Image
           width={100}
@@ -126,7 +121,7 @@ const HeroPage: React.FC<Props>= async ({ params, searchParams }) => {
         replace
         href={changeHero('next')}
         className={`text-center h-16 w-16
-        md:h-32 md:w-22 text-6xl md:text-8xl text-blue top-52 left-0`}
+        md:h-32 md:w-22 text-6xl md:text-8xl text-blue top-52 left-0 md:mr-3.5`}
       >
         <Image
           width={100}

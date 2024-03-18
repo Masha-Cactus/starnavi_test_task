@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Search from "../../components/Search";
 // import { getHeros } from "../api/heros/route";
 import Pagination from "../../components/Pagination";
 import BackBtn from "../../components/BackBtn";
 import HeroCard from "../../components/HeroCard";
 import { getHeros } from "../services/heros/heros";
+import Loading from "./loading";
 
 // Functional component HerosPage in TypeScript that fetches hero data based on search parameters,
 // displays the hero cards in a grid layout with pagination, and handles error cases.
@@ -44,6 +45,7 @@ const HerosPage = async ({
     <main className="h-screen flex flex-col items-center justify-between">
       <BackBtn />
       <Search />
+      <Suspense fallback={<Loading />}>
       {!!heros.length ? (
         <>
           <ul className={`grid grid-cols-2 gap-8 py-24
@@ -58,8 +60,9 @@ const HerosPage = async ({
           <Pagination totalPages={pages} curPage={page} />
         </>
       ) : ( 
-        <h1 className="text-text text-3xl my-auto">No such heros</h1>
+        <h1 className="text-text text-3xl my-auto text-purple">No such heros</h1>
       )}
+      </Suspense>
       
     </main>
   );
