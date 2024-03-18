@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+.logo:hover {
+  animation: blink 500ms infinite;
+}
+
+@keyframes blink {
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(150%);
+  }
+  100% {
+    filter: brightness(120%);
+  }
+}
+
+@layer components {
+  .text-custom {
+    @apply text-text bg-bgGrey text-sm md:text-lg;
+  }
+}
