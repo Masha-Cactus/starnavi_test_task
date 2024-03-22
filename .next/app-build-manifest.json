@@ -1,9 +1,14 @@
 {
   "pages": {
-    "/page": [
+    "/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/loading.js"
+    ],
+    "/heros/error": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/heros/error.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,31 +16,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/heros/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/heros/page.js"
-    ],
     "/heros/loading": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/heros/loading.js"
     ],
-    "/heros/error": [
+    "/heros/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/heros/error.js"
-    ],
-    "/loading": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/loading.js"
-    ],
-    "/heros/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/heros/[id]/page.css",
-      "static/chunks/app/heros/[id]/page.js"
+      "static/chunks/app/heros/page.js"
     ],
     "/heros/[id]/error": [
       "static/chunks/webpack.js",
@@ -46,6 +35,12 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/heros/[id]/loading.js"
+    ],
+    "/heros/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/heros/[id]/page.css",
+      "static/chunks/app/heros/[id]/page.js"
     ]
   }
 }
