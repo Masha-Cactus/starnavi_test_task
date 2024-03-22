@@ -46,22 +46,26 @@ const HerosPage = async ({
       <BackBtn />
       <Search />
       <Suspense fallback={<Loading />}>
-      {!!heros.length ? (
-        <>
-          <ul className={`grid grid-cols-2 gap-8 py-24
-          md:grid-cols-2 md:py-56
-          lg:grid-cols-5`}>
-            {heros.map(hero => (
-              <li key={hero.name}>
-                <HeroCard hero={hero} page={page || '1'} search={search || ''}/>
-              </li>
-            ))}
-          </ul>
-          <Pagination totalPages={pages} curPage={page} />
-        </>
-      ) : ( 
-        <h1 className="text-text text-3xl my-auto text-purple">No such heros</h1>
-      )}
+        {!!heros.length ? (
+          <>
+            <ul className={`grid grid-cols-2 gap-8 py-24
+                md:grid-cols-2 md:py-56
+                lg:grid-cols-5`}>
+              {heros.map(hero => (
+                <li key={hero.name}>
+                  <HeroCard 
+                    hero={hero} page={page || '1'} search={search || ''}
+                  />
+                </li>
+              ))}
+            </ul>
+            <Pagination totalPages={pages} curPage={page} />
+          </>
+        ) : ( 
+          <h1 className="text-text text-3xl my-auto text-purple">
+            No such heros
+          </h1>
+        )}
       </Suspense>
       
     </main>

@@ -27,7 +27,7 @@ export default function Search() {
     params.delete("page");
 
     router.push(pathname + "?" + params.toString());
-  }
+  };
 
   return (
     <div className="flex absolute right-4 top-4 md:right-8 md:top-8">
